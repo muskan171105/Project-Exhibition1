@@ -1,0 +1,226 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+    
+    }
+    
+.background-image{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(rgba(75, 73, 73, 0.8),rgba(255, 255, 255, 0.2));
+    font-family: 'Times New Roman', Times, serif;
+}
+
+nav{
+    width: 100%;
+    height: 100px;
+    background: transparent;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: spacearound;
+    align-items: center;
+}
+
+.logo img {
+    margin-top: 14px;
+    margin-left: 120px;
+    width: 100px;
+    margin-right: 170px;
+    height: 100px;
+    object-fit: contain;
+    max-width: 100%;
+    filter: drop-shadow(0 0 40px rgb(211, 80, 57)) drop-shadow(0 0 20px rgba(255, 255, 255, 0.7));
+}
+
+.nav-menu{
+    width: 38%;
+    height: 44%;
+    padding-left:28px ;
+    padding-top: 9px;
+    background-color: rgba(238, 229, 229, 0.397);
+    box-shadow: 0 0 25px 5px #0000003b;
+    border-radius: 10px;
+    margin-inline-end: 170px;
+    margin-left: 14px;
+}
+
+.menu a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    font-size: 20px;
+    position: relative;
+}
+
+.menu a:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%; 
+    border-bottom: 2px solid rgb(235, 71, 71);
+    transition: 0.4s linear;
+}
+
+.menu a:hover:before{
+    width:90% ;
+}
+
+
+.register a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    font-size: 20px;
+    background-color: indianred;
+    transition: 0.4s linear;
+    border-radius: 15px;
+    margin-left: 0px;
+}
+
+.register a:hover{
+    background: transparent;
+    border: 1px solid indianred;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f7f7f7;
+}
+
+.header {
+    background-color:indianred;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.header p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+}
+
+.content {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 30px;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    color: indianred;
+    margin-top: 0;
+    text-align: center;
+}
+
+.image {
+    display: block;
+    max-width: 100%;
+    margin: 15px auto;
+    border-radius: 8px;
+}
+  
+
+#list{
+  margin-left: 20px;
+}
+
+.content{
+  font-size: 18px;
+  text-align: justify;
+}
+
+
+  .fade-in {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    top: 0;
+    right: 0;
+    animation: heartRateIn 2.5s linear infinite;
+  }
+  
+  .fade-out {
+    position: absolute;
+    width: 120%;
+    height: 100%;
+    top: 0;
+    left: -120%;
+    animation: heartRateOut 2.5s linear infinite;
+    background: rgba(255, 255, 255, 1);
+    background: -moz-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: -webkit-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: -o-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: -ms-linear-gradient(left, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    background: linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 80%, rgba(255, 255, 255, 0) 100%);
+  }
+  
+  @keyframes heartRateIn {
+    0% {
+      width: 100%;
+    }
+    50% {
+      width: 0;
+    }
+    100% {
+      width: 0;
+    }
+  }
+  
+  @keyframes heartRateOut {
+    0% {
+      left: -120%;
+    }
+    30% {
+      left: -120%;
+    }
+    100% {
+      left: 0;
+    }
+  }
+
+
+  .heartbeat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.heart-rate {
+  width: 400px; /* Larger width */
+  height: 200px; /* Larger height */
+  position: relative;
+  margin: 20px auto;
+  overflow: hidden; /* Ensures animations don't exceed bounds */
+}
+
+.footer {
+  text-align: center;
+  padding: 15px;
+  background-color: indianred;
+  color: white;
+  margin-top: 30px;
+}
