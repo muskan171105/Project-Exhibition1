@@ -61,7 +61,7 @@ Machine Learning Libraries:
 ## Installation
 1. Clone the Repository
 ```
-git clone https://github.com/yourusername/Hriday-Tarni.git
+git clone https://github.com/muskan171105/Project-Exhibition1.git
 ```
 2. Install Backend Dependencies
 ```
