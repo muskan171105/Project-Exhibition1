@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+*{
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(#F1FAFF,#CBE4FF)
+}
+
+.sidebar{
+    width: 270px;
+    position: fixed;
+    margin: 16px;
+    border-radius: 16px;
+    background: #b44242;
+    height: calc(100vh - 32px);
+    transition: 0.4s ease;
+}
+
+#hr1{
+    border: solid 1px white; 
+    margin-top: 7px;
+    margin-bottom: 5px;
+}
+
+
+.sidebar.collapsed{
+    width: 85px;
+}
+
+.sidebar-header{
+    position: relative;
+    display: flex;
+    padding: 25px 20px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo{
+    background-color: #fff;
+    border-radius: 21%;
+}
+
+.sidebar-header .header-logo img{
+    width: 50px;
+    height: 50px;
+    display:block;
+    object-fit: contain;
+}
+
+.sidebar-header .toggler{
+    position: absolute;
+    right: 20px;
+    height: 35px;
+    width: 35px;
+    border: none;
+    color: #151A2D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 8px;
+    background: #fff;
+    transition: 0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-header .toggler {
+    transform: translate(-4px, 65px);
+}
+
+.sidebar-header .toggler:hover {
+    background: #dde4fb;
+}
+
+.sidebar-header .toggler span{
+    font-size: 1.75rem;
+    transition: 0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-header .toggler span {
+    transform: rotate(180deg);
+}
+
+.sidebar-nav .nav-list {
+    list-style: none;
+    display: flex;
+    gap: 4px;
+    padding: 0 15px;
+    flex-direction: column;
+    transform: translateY(15px);
+    transition: 0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-nav .primary-nav {
+    transform: translateY(65px);
+}
+
+.sidebar-nav .nav-link {
+    color: #ffffff;
+    display: flex;
+    gap: 12px;
+    white-space: nowrap;
+    border-radius: 8px;
+    align-items: center;
+    padding: 12px 15px;
+    text-decoration: none;
+    transition: 0.4s ease;
+}
+
+.sidebar-nav .nav-link:hover{
+    color: #151A2D;
+    background: #fff;
+}
+
+.sidebar-nav .nav-link .nav-label {
+    transition:opacity   0.4s ease;
+}
+
+.sidebar.collapsed .sidebar-nav .nav-link .nav-label {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar-nav .nav-item {
+    position: relative;
+}
+
+.sidebar-nav .nav-tooltip {
+    position: absolute;
+    top: -10px;
+    opacity: 0;
+    display: none;
+    pointer-events: none;
+    left: calc(100% + 25px);
+    color: #151A2D;
+    padding: 6px 12px;
+    border-radius: 8px;
+    background:#fff;
+    white-space: nowrap;
+    box-shadow: 0 5px 10px □rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.collapsed .sidebar-nav .nav-tooltip {
+    display: block;
+}
+
+.sidebar-nav .nav-item:hover .nav-tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(50%);
+    transition: 0.4s ease;
+}
+
+.sidebar-nav .secondary-nav {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Heart Rate Detection Container */
+.heart-rate-container {
+    position: absolute;
+    top: 20px;
+    left: 290px; /* Adjusted for a gap between the sidebar and div */
+    width: calc(100% - 300px); /* Take the remaining width of the page minus the sidebar width */
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: left 0.4s ease, width 0.4s ease; /* Smooth transition for position and width */
+    z-index: 1;
+}
+
+.sidebar.collapsed ~ .heart-rate-container {
+    left: 120px; /* Adjust position when the sidebar is collapsed */
+    width: calc(100% - 150px); /* Adjust width accordingly when sidebar is collapsed */
+}
+
+.heart-rate-container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.heart-rate-btn {
+    padding: 12px 20px;
+    background-color: #b44242;
+    color: #fff;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.heart-rate-btn:hover {
+    background-color: #a33b3b;
+}
+
+/* Sidebar styles with smooth transition */
+.sidebar {
+    width: 270px;
+    position: fixed;
+    margin: 16px;
+    border-radius: 16px;
+    background: #b44242;
+    height: calc(100vh - 32px);
+    transition: width 0.4s ease; /* Smooth transition for sidebar resizing */
+}
+
+.sidebar.collapsed {
+    width: 85px;
+}

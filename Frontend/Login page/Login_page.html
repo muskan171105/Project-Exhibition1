@@ -1,82 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hriday Tarni</title>
-    <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-    <div class="login-page">
-        <div class="form-box">
-            <div class="button-box">
-                <div id="btn"></div>
-                <button type="button" class="toggle-btn" onclick="register()">Register</button>
-                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hriday Tarni</title>
+        <link rel="stylesheet"  href="style.css" />
+        
+    </head>
+    <body>
+        <div class="login-page">
+            <div class="form-box" >
+                <div class="button-box">
+                    <div id="btn"></div>
+                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                    <button type="button" class="toggle-btn" onclick="login()">Log In</button>
+                </div>
+                <form id="login" class="input-group" >
+                    <input type="text" class="input-field" placeholder="User Id" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box">
+                    <span>Remember Password</span>
+                    <button type="submit" class="submit-btn">Log In</button>
+                </form>
+                <form id="register" class="input-group">
+                    <input type="text" class="input-field" placeholder="User Id" required>
+                    <input type="email" class="input-field" placeholder="Email" required>
+                    <input type="password" class="input-field" placeholder="Enter Password" required>
+                    <input type="checkbox" class="check-box">
+                    <span>I agree to the <a href="#" id="abcdef" >Terms and service</a></span>
+                    <button type="submit" class="submit-btn">Register</button>
+
+                </form>
             </div>
-            <form id="login" class="input-group" onsubmit="handleLogin(event)">
-                <input type="text" id="username" class="input-field" placeholder="User Id" required>
-                <input type="password" id="password" class="input-field" placeholder="Enter Password" required>
-                <input type="checkbox" class="check-box">
-                <span>Remember Password</span>
-                <button type="submit" class="submit-btn">Log In</button>
-            </form>
-            <form id="register" class="input-group">
-                <input type="text" class="input-field" placeholder="User Id" required>
-                <input type="email" class="input-field" placeholder="Email" required>
-                <input type="password" class="input-field" placeholder="Enter Password" required>
-                <input type="checkbox" class="check-box">
-                <span>I agree to the <a href="#" id="abcdef">Terms and service</a></span>
-                <button type="submit" class="submit-btn">Register</button>
-            </form>
         </div>
-    </div>
+        <script>
+            var log = document.getElementById("login")
+            var reg = document.getElementById("register")
+            var button = document.getElementById("btn")
 
-    <script>
-        var log = document.getElementById("login");
-        var reg = document.getElementById("register");
-        var button = document.getElementById("btn");
-
-        function register() {
-            log.style.left = "450px";
-            reg.style.left = "50px";
-            button.style.left = "0px";
-        }
-
-        function login() {
-            log.style.left = "50px";
-            reg.style.left = "450px";
-            button.style.left = "110px";
-        }
-
-        // Function to handle login form submission
-        async function handleLogin(event) {
-            event.preventDefault(); // Prevent form from reloading the page
-
-            const username = document.getElementById("username").value;
-            const password = document.getElementById("password").value;
-
-            try {
-                const response = await fetch('http://localhost:3000/api/login', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ username, password }),
-                });
-
-                const data = await response.json();
-
-                if (response.ok) {
-                    alert(data.message); // Show success message
-                } else {
-                    alert(data.error); // Show error message
-                }
-            } catch (error) {
-                console.error('Error during login:', error);
-                alert('Error during login');
+            function register(){
+                log.style.left ="450px";
+                reg.style.left ="50px";
+                button.style.left ="0px";
             }
-        }
-    </script>
-</body>
+            
+            function login(){
+                log.style.left ="50px";
+                reg.style.left ="450px";
+                button.style.left ="110px";
+            }
+        </script>
+    </body>
 </html>
