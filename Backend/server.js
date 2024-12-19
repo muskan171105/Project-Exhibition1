@@ -1,8 +1,8 @@
 const express = require('express');
 const pool = require('./db/db');  // Correct path to db.js
 const loginRouter = require('./routes/loginRoute');  // Import the login route
-const detectionRouter = require('./routes/detectionRoute');  // Import the detection route
 const profileRouter = require('./routes/profileRoutes');  // Import the profile route
+const healthRouter = require('./routes/healthRoute');  // Import the health route
 const cors = require('cors');  // Import the CORS package
 const path = require('path');  // Import path for handling file paths
 
@@ -25,11 +25,11 @@ app.get('/', (req, res) => {
 // Register the login route
 app.use('/api', loginRouter);  // All login routes will now be under /api
 
-// Register the detection route
-app.use('/api/detection', detectionRouter);  // All detection routes will be under /api/detection
-
 // Register the profile route
 app.use('/api/profile', profileRouter);  // All profile routes will now be under /api/profile
+
+// Register the health route under /api/health
+app.use('/api/health', healthRouter);  // All health-related routes will now be under /api/health
 
 // New route to handle profile details submission
 app.post('/api/profile', (req, res) => {
