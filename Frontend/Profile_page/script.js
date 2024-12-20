@@ -14,6 +14,7 @@ profileForm.addEventListener("submit", (event) => {
     event.preventDefault(); // Prevent default form submission to handle it manually
 
     // Get the values from the form fields
+    const user_id = document.getElementById("user_id").value; // Get user_id from the form
     const name = document.getElementById("name").value;
     const date_of_birth = document.getElementById("dob").value;
     const age = document.getElementById("age").value;
@@ -23,6 +24,7 @@ profileForm.addEventListener("submit", (event) => {
     const phone_number = document.getElementById("phone").value;
 
     // Log the values to check if they are being correctly retrieved
+    console.log("User ID:", user_id);
     console.log("Name:", name);
     console.log("Date of Birth:", date_of_birth);
     console.log("Age:", age);
@@ -33,6 +35,7 @@ profileForm.addEventListener("submit", (event) => {
 
     // Prepare data as a URL-encoded string
     const data = new URLSearchParams();
+    data.append("user_id", user_id); // Add user_id to the data
     data.append("name", name);
     data.append("date_of_birth", date_of_birth);
     data.append("age", age);
@@ -45,9 +48,9 @@ profileForm.addEventListener("submit", (event) => {
     fetch("http://localhost:3000/api/profile", {
         method: "POST",
         headers: {
-            "Content-Type": "application/x-www-form-urlencoded",  // Ensure the backend receives data in the correct format
+            "Content-Type": "application/x-www-form-urlencoded", // Ensure the backend receives data in the correct format
         },
-        body: data.toString(),  // Convert URLSearchParams to a query string
+        body: data.toString(), // Convert URLSearchParams to a query string
     })
     .then(response => {
         if (response.ok) {

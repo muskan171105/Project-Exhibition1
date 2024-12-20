@@ -1,38 +1,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
-*{
+* {
     font-family: "Poppins", sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    background: linear-gradient(#F1FAFF,#CBE4FF)
+body {
+    background: linear-gradient(#F1FAFF, #CBE4FF);
 }
 
-.sidebar{
+/* Sidebar styles */
+.sidebar {
     width: 270px;
     position: fixed;
     margin: 16px;
     border-radius: 16px;
     background: #b44242;
     height: calc(100vh - 32px);
-    transition: 0.4s ease;
+    transition: width 0.4s ease; /* Smooth transition for sidebar resizing */
 }
 
-#hr1{
-    border: solid 1px white; 
-    margin-top: 7px;
-    margin-bottom: 5px;
-}
-
-
-.sidebar.collapsed{
+.sidebar.collapsed {
     width: 85px;
 }
 
-.sidebar-header{
+.sidebar-header {
     position: relative;
     display: flex;
     padding: 25px 20px;
@@ -40,19 +34,19 @@ body{
     justify-content: space-between;
 }
 
-.header-logo{
+.header-logo {
     background-color: #fff;
     border-radius: 21%;
 }
 
-.sidebar-header .header-logo img{
+.sidebar-header .header-logo img {
     width: 50px;
     height: 50px;
-    display:block;
+    display: block;
     object-fit: contain;
 }
 
-.sidebar-header .toggler{
+.sidebar-header .toggler {
     position: absolute;
     right: 20px;
     height: 35px;
@@ -76,7 +70,7 @@ body{
     background: #dde4fb;
 }
 
-.sidebar-header .toggler span{
+.sidebar-header .toggler span {
     font-size: 1.75rem;
     transition: 0.4s ease;
 }
@@ -111,13 +105,13 @@ body{
     transition: 0.4s ease;
 }
 
-.sidebar-nav .nav-link:hover{
+.sidebar-nav .nav-link:hover {
     color: #151A2D;
     background: #fff;
 }
 
 .sidebar-nav .nav-link .nav-label {
-    transition:opacity   0.4s ease;
+    transition: opacity 0.4s ease;
 }
 
 .sidebar.collapsed .sidebar-nav .nav-link .nav-label {
@@ -139,9 +133,9 @@ body{
     color: #151A2D;
     padding: 6px 12px;
     border-radius: 8px;
-    background:#fff;
+    background: #fff;
     white-space: nowrap;
-    box-shadow: 0 5px 10px □rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar.collapsed .sidebar-nav .nav-tooltip {
@@ -160,26 +154,6 @@ body{
     bottom: 30px;
     width: 100%;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* Heart Rate Detection Container */
 .heart-rate-container {
@@ -221,17 +195,60 @@ body{
     background-color: #a33b3b;
 }
 
-/* Sidebar styles with smooth transition */
-.sidebar {
-    width: 270px;
-    position: fixed;
-    margin: 16px;
-    border-radius: 16px;
-    background: #b44242;
-    height: calc(100vh - 32px);
-    transition: width 0.4s ease; /* Smooth transition for sidebar resizing */
+/* Table Styles */
+.grid-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.sidebar.collapsed {
-    width: 85px;
+.grid-table th, .grid-table td {
+    padding: 12px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.grid-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.grid-table td {
+    background-color: #fff;
+}
+
+.grid-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.grid-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.grid-table td:last-child {
+    border-right: none;
+}
+
+#recordsTable {
+    width: 100%;
+    border-collapse: separate; /* Ensure borders are separate */
+    border-spacing: 10px; /* Adjust the spacing as needed */
+    margin: 20px 0;
+}
+
+#recordsTable th, #recordsTable td {
+    padding: 10px; /* Adds padding inside each cell */
+    text-align: center; /* Centers the content inside the cells */
+    border: 1px solid #ddd; /* Adds a light border around each cell */
+}
+
+#recordsTable th {
+    background-color: #f4f4f4; /* Background color for table headers */
+}
+
+/* Make the table responsive */
+@media (max-width: 768px) {
+    .grid-table th, .grid-table td {
+        padding: 8px;
+    }
 }

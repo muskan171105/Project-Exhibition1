@@ -1,54 +1,140 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Hriday Tarni</title>
-        <link rel="stylesheet"  href="style.css" />
-        
-    </head>
-    <body>
-        <div class="login-page">
-            <div class="form-box" >
-                <div class="button-box">
-                    <div id="btn"></div>
-                    <button type="button" class="toggle-btn" onclick="register()">Register</button>
-                    <button type="button" class="toggle-btn" onclick="login()">Log In</button>
-                </div>
-                <form id="login" class="input-group" >
-                    <input type="text" class="input-field" placeholder="User Id" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="check-box">
-                    <span>Remember Password</span>
-                    <button type="submit" class="submit-btn">Log In</button>
-                </form>
-                <form id="register" class="input-group">
-                    <input type="text" class="input-field" placeholder="User Id" required>
-                    <input type="email" class="input-field" placeholder="Email" required>
-                    <input type="password" class="input-field" placeholder="Enter Password" required>
-                    <input type="checkbox" class="check-box">
-                    <span>I agree to the <a href="#" id="abcdef" >Terms and service</a></span>
-                    <button type="submit" class="submit-btn">Register</button>
-
-                </form>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hriday Tarni</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <div class="login-page">
+        <div class="form-box">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="register()">Register</button>
+                <button type="button" class="toggle-btn" onclick="login()">Log In</button>
             </div>
+            <!-- Login Form -->
+            <form id="login" class="input-group" onsubmit="handleLogin(event)">
+                <input type="text" class="input-field" id="loginUserId" placeholder="User Id" required>
+                <input type="password" class="input-field" id="loginPassword" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box">
+                <span>Remember Password</span>
+                <button type="submit" class="submit-btn">Log In</button>
+            </form>
+            <!-- Registration Form -->
+            <form id="register" class="input-group" onsubmit="handleRegister(event)">
+                <input type="text" class="input-field" id="registerUserId" placeholder="User Id" required>
+                <input type="email" class="input-field" id="registerEmail" placeholder="Email" required>
+                <input type="password" class="input-field" id="registerPassword" placeholder="Enter Password" required>
+                <input type="checkbox" class="check-box">
+                <span>I agree to the <a href="#" id="abcdef">Terms and service</a></span>
+                <button type="submit" class="submit-btn">Register</button>
+            </form>
         </div>
-        <script>
-            var log = document.getElementById("login")
-            var reg = document.getElementById("register")
-            var button = document.getElementById("btn")
+    </div>
 
-            function register(){
-                log.style.left ="450px";
-                reg.style.left ="50px";
-                button.style.left ="0px";
+    <script>
+        var log = document.getElementById("login");
+        var reg = document.getElementById("register");
+        var button = document.getElementById("btn");
+
+        // Toggle between Login and Register forms
+        function register() {
+            log.style.left = "450px";
+            reg.style.left = "50px";
+            button.style.left = "0px";
+        }
+
+        function login() {
+            log.style.left = "50px";
+            reg.style.left = "450px";
+            button.style.left = "110px";
+        }
+
+        // Handle login form submission
+        async function handleLogin(event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+
+            const userId = document.getElementById("loginUserId").value;
+            const password = document.getElementById("loginPassword").value;
+
+            if (!userId || !password) {
+                alert("Please enter both username and password.");
+                return;
             }
-            
-            function login(){
-                log.style.left ="50px";
-                reg.style.left ="450px";
-                button.style.left ="110px";
+
+            const loginData = {
+                username: userId,
+                password: password
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(loginData)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Login successful:', data);
+                    // Redirect to Profile.html after successful login
+                    window.location.href = '../Profile_page/Profile.html';  // Redirect to Profile page
+                } else {
+                    console.error('Login failed:', response.statusText);
+                    alert('Invalid username or password.');
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+                alert('An error occurred during login. Please try again later.');
             }
-        </script>
-    </body>
+        }
+
+        // Handle registration form submission
+        async function handleRegister(event) {
+            event.preventDefault();  // Prevent the form from submitting normally
+
+            const userId = document.getElementById("registerUserId").value;
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
+
+            if (!userId || !email || !password) {
+                alert("Please fill out all fields.");
+                return;
+            }
+
+            const registerData = {
+                username: userId,
+                email: email,
+                password: password
+            };
+
+            try {
+                const response = await fetch('http://localhost:3000/api/register', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(registerData)
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    console.log('Registration successful:', data);
+                    // Redirect to Profile.html after successful registration
+                    window.location.href = '../Profile_page/Profile.html';  // Redirect to Profile page
+                } else {
+                    console.error('Registration failed:', response.statusText);
+                    alert('Registration failed. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error during registration:', error);
+                alert('An error occurred during registration. Please try again later.');
+            }
+        }
+    </script>
+</body>
 </html>

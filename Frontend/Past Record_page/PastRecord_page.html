@@ -6,7 +6,6 @@
         <title>Hriday Tarni</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet">
-
     </head>
     <body>
         <aside class="sidebar">
@@ -36,7 +35,6 @@
                         </a>
                         <span class="nav-tooltip">About</span>
                     </li>
-
                     <li class="nav-item">
                         <a href="../Heart_page/Heart_page.html" class="nav-link">
                             <span class="nav-icon material-symbols-rounded">cardiology</span>
@@ -75,8 +73,6 @@
                     </li>    
                 </ul>
 
-
-
                 <ul class="nav-list secondary-nav">
                     <li class="nav-item">
                         <a href="../Profile_page/Profile.html" class="nav-link">
@@ -91,15 +87,36 @@
                             <span class="nav-label">Logout</span>
                         </a>
                         <span class="nav-tooltip">Logout</span>
-                    </li>
+                    </li>   
                 </ul>
             </nav>
-            
         </aside>
+
         <div class="heart-rate-container">
             <h2>Know your past records</h2>
             <p>View your previous heart rate records</p>
+
+            <!-- Table to display past records -->
+            <table id="recordsTable">
+                <thead>
+                    <tr>
+                        <th>Heart Rate</th>
+                        <th>Stress Level</th>
+                        <th>HRV</th>
+                        <th>Respiratory Rate</th>
+                        <th>Illness Index</th>
+                        <th>Mood</th>
+                        <th>Sleep Quality</th>
+                        <th>Cardiac Risk</th>
+                        <th>Activity Level</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Records will be dynamically added here -->
+                </tbody>
+            </table>
         </div>
-        <script src="./script.js"></script>
+
+        <script src="script.js"></script>
     </body>
 </html>
